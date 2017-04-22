@@ -1,0 +1,2018 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/PrismarineJS/node-minecraft-protocol#readme">minecraft-protocol (v1.1.3)</a>
+</h1>
+<h4>Parse and serialize minecraft packets, plus authentication and encryption.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol">module minecraft-protocol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.Client">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>Client
+            <span class="apidocSignatureSpan">(isServer, version, customPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.Server">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>Server
+            <span class="apidocSignatureSpan">(version, customPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.createClient">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>createClient
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.createDeserializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>createDeserializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.createSerializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>createSerializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.createServer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>createServer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ping">
+            function <span class="apidocSignatureSpan">minecraft-protocol.</span>ping
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>browser</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>compression</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>framing</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>serializer</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>states</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>supportedVersions</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.</span>ursa</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol.browser">module minecraft-protocol.browser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.browser.Client">
+            function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>Client
+            <span class="apidocSignatureSpan">(isServer, version, customPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.browser.Server">
+            function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>Server
+            <span class="apidocSignatureSpan">(version, customPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.browser.createDeserializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>createDeserializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.browser.createSerializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>createSerializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>states</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>supportedVersions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol.compression">module minecraft-protocol.compression</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.compression.createCompressor">
+            function <span class="apidocSignatureSpan">minecraft-protocol.compression.</span>createCompressor
+            <span class="apidocSignatureSpan">(threshold)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.compression.createDecompressor">
+            function <span class="apidocSignatureSpan">minecraft-protocol.compression.</span>createDecompressor
+            <span class="apidocSignatureSpan">(threshold)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol.framing">module minecraft-protocol.framing</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.framing.createFramer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.framing.</span>createFramer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.framing.createSplitter">
+            function <span class="apidocSignatureSpan">minecraft-protocol.framing.</span>createSplitter
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol.serializer">module minecraft-protocol.serializer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.serializer.createDeserializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.serializer.</span>createDeserializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.serializer.createSerializer">
+            function <span class="apidocSignatureSpan">minecraft-protocol.serializer.</span>createSerializer
+            <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.minecraft-protocol.ursa">module minecraft-protocol.ursa</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.assertKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.assertPrivateKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertPrivateKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.assertPublicKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertPublicKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.coerceKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coerceKey
+            <span class="apidocSignatureSpan">(orig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.coercePrivateKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coercePrivateKey
+            <span class="apidocSignatureSpan">(orig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.coercePublicKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coercePublicKey
+            <span class="apidocSignatureSpan">(orig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createKey
+            <span class="apidocSignatureSpan">(pem, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createPrivateKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPrivateKey
+            <span class="apidocSignatureSpan">(pem, password, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createPrivateKeyFromComponents">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPrivateKeyFromComponents
+            <span class="apidocSignatureSpan">(modulus, exponent, p, q, dp, dq, inverseQ, d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createPublicKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPublicKey
+            <span class="apidocSignatureSpan">(pem, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createPublicKeyFromComponents">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPublicKeyFromComponents
+            <span class="apidocSignatureSpan">(modulus, exponent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createSigner">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createSigner
+            <span class="apidocSignatureSpan">(algorithm)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.createVerifier">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createVerifier
+            <span class="apidocSignatureSpan">(algorithm)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.equalKeys">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>equalKeys
+            <span class="apidocSignatureSpan">(key1, key2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.generatePrivateKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>generatePrivateKey
+            <span class="apidocSignatureSpan">(modulusBits, exponent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.isKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.isPrivateKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isPrivateKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.isPublicKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isPublicKey
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.matchingPublicKeys">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>matchingPublicKeys
+            <span class="apidocSignatureSpan">(key1, key2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.openSshPublicKey">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>openSshPublicKey
+            <span class="apidocSignatureSpan">(key, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.minecraft-protocol.ursa.sshFingerprint">
+            function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>sshFingerprint
+            <span class="apidocSignatureSpan">(sshKey, sshEncoding, outEncoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_NO_PADDING</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_PKCS1_OAEP_PADDING</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_PKCS1_PADDING</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_PKCS1_SALT_LEN_HLEN</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_PKCS1_SALT_LEN_MAX</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>RSA_PKCS1_SALT_LEN_RECOVER</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol" id="apidoc.module.minecraft-protocol">module minecraft-protocol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.Client" id="apidoc.element.minecraft-protocol.Client">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>Client
+        <span class="apidocSignatureSpan">(isServer, version, customPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Client extends EventEmitter
+{
+  constructor(isServer, version, customPackets) {
+    super();
+    this.customPackets=customPackets;
+    this.version=version;
+    this.isServer = !!isServer;
+    this.splitter=framing.createSplitter();
+    this.setSerializer(states.HANDSHAKING);
+    this.packetsToParse={};
+    this.serializer;
+    this.compressor=null;
+    this.framer=framing.createFramer();
+    this.cipher=null;
+    this.decipher=null;
+    this.decompressor=null;
+    this.deserializer;
+    this.isServer;
+    this.protocolState=states.HANDSHAKING;
+    this.ended=true;
+    this.latency=0;
+
+    this.on('newListener', function(event, listener) {
+      const direction = this.isServer ? 'toServer' : 'toClient';
+      if(typeof this.packetsToParse[event] === "undefined") this.packetsToParse[event] = 1;
+      else this.packetsToParse[event] += 1;
+    });
+    this.on('removeListener', function(event, listener) {
+      const direction = this.isServer ? 'toServer' : 'toClient';
+      this.packetsToParse[event] -= 1;
+    });
+  }
+
+  get state(){
+    return this.protocolState;
+  }
+
+
+  setSerializer(state) {
+    this.serializer = createSerializer({ isServer:this.isServer, version:this.version, state: state,customPackets:this.customPackets
+});
+    this.deserializer = createDeserializer({ isServer:this.isServer, version:this.version, state: state, packetsToParse:
+      this.packetsToParse,customPackets:this.customPackets});
+
+    this.splitter.recognizeLegacyPing = state === states.HANDSHAKING;
+
+    this.serializer.on('error', (e) =&gt; {
+      let parts;
+      if(e.field) {
+        parts = e.field.split(".");
+        parts.shift();
+      }
+      else
+        parts=[];
+      const serializerDirection = !this.isServer ? 'toServer' : 'toClient';
+      e.field = [this.protocolState, serializerDirection].concat(parts).join(".");
+      e.message = `Serialization error for ${e.field} : ${e.message}`;
+      if(!this.compressor)
+        this.serializer.pipe(this.framer);
+      else
+        this.serializer.pipe(this.compressor);
+      this.emit('error',e);
+    });
+
+
+    this.deserializer.on('error', (e) =&gt; {
+      let parts;
+      if(e.field) {
+        parts = e.field.split(".");
+        parts.shift();
+      }
+      else
+        parts=[];
+      const deserializerDirection = this.isServer ? 'toServer' : 'toClient';
+      e.field = [this.protocolState, deserializerDirection].concat(parts).join(".");
+      e.message = `Deserialization error for ${e.field} : ${e.message}`;
+      if(!this.compressor)
+        this.splitter.pipe(this.deserializer);
+      else
+        this.decompressor.pipe(this.deserializer);
+      this.emit('error',e);
+    });
+
+    this.deserializer.on('data', (parsed) =&gt; {
+      parsed.metadata.name=parsed.data.name;
+      parsed.data=parsed.data.params;
+      parsed.metadata.state=state;
+      debug("read packet " + state + "." + parsed.metadata.name);
+      debug(parsed.data);
+      this.emit('packet', parsed.data, parsed.metadata);
+      this.emit(parsed.metadata.name, parsed.data, parsed.metadata);
+      this.emit('raw.' + parsed.metadata.name, parsed.buffer, parsed.metadata);
+      this.emit('raw', parsed.buffer, parsed.metadata);
+    });
+  }
+
+  set state(newProperty) {
+    const oldProperty = this.protocolState;
+    this.protocolState = newProperty;
+
+    if(!this.compressor)
+    {
+      this.serializer.unpipe(this.framer);
+      this.splitter.unpipe(this.deserializer);
+    }
+    else
+    {
+      this.serializer.unpipe(this.compressor);
+      this.decompressor.unpipe(this.deserializer);
+    }
+
+    this.serializer.removeAllListeners();
+    this.deserializer.removeAllListeners();
+    this.setSerializer(this.protocolState);
+
+    if(!this.compressor)
+    {
+      this.serializer.pipe(this.framer);
+      this.splitter.pipe(this.deserializer);
+    }
+    else
+    {
+      this.serializer.pipe(this.compressor);
+      this.decompressor.pipe(this.deserializer);
+    }
+
+    this.emit('state', newProperty, oldProperty);
+  }
+
+  get compressionThreshold() {
+    return this.compressor == null ? -2 : this.compressor.compressionThreshold;
+  }
+
+  set c ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.Server" id="apidoc.element.minecraft-protocol.Server">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>Server
+        <span class="apidocSignatureSpan">(version, customPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Server extends EventEmitter
+{
+  constructor(version, customPackets) {
+    super();
+    this.version=version;
+    this.socketServer=null;
+    this.cipher=null;
+    this.decipher=null;
+    this.clients={};
+    this.customPackets=customPackets;
+  }
+
+  listen(port, host) {
+    const self = this;
+    let nextId = 0;
+    self.socketServer = net.createServer();
+    self.socketServer.on('connection', socket =&gt; {
+      const client = new Client(true,this.version,this.customPackets);
+      client._end = client.end;
+      client.end = function end(endReason) {
+        endReason='{"text":"'+endReason+'"}';
+        if(client.state === states.PLAY) {
+          client.write('kick_disconnect', {reason: endReason});
+        } else if(client.state === states.LOGIN) {
+          client.write('disconnect', {reason: endReason});
+        }
+        client._end(endReason);
+      };
+      client.id = nextId++;
+      self.clients[client.id] = client;
+      client.on('end', function() {
+        delete self.clients[client.id];
+      });
+      client.setSocket(socket);
+      self.emit('connection', client);
+    });
+    self.socketServer.on('error', function(err) {
+      self.emit('error', err);
+    });
+    self.socketServer.on('close', function() {
+      self.emit('close');
+    });
+    self.socketServer.on('listening', function() {
+      self.emit('listening');
+    });
+    self.socketServer.listen(port, host);
+  }
+
+  close() {
+    Object.keys(this.clients).forEach(clientId =&gt; {
+      const client = this.clients[clientId];
+      client.end('ServerShutdown');
+    });
+    this.socketServer.close();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.createClient" id="apidoc.element.minecraft-protocol.createClient">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>createClient
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createClient(options) {
+  assert.ok(options, "options is required");
+  assert.ok(options.username, "username is required");
+
+  // TODO: avoid setting default version if autoVersion is enabled
+  const optVersion = options.version || require("./version").defaultVersion;
+  const mcData=require("minecraft-data")(optVersion);
+  if (!mcData) throw new Error(`unsupported protocol version: ${optVersion}`);
+  const version = mcData.version;
+  options.majorVersion = version.majorVersion;
+  options.protocolVersion = version.version;
+
+  const client = new Client(false, version.minecraftVersion,options.customPackets);
+
+  tcp_dns(client, options);
+  caseCorrect(client, options);
+  if (options.version === false) autoVersion(client, options);
+  setProtocol(client, options);
+  keepalive(client, options);
+  encrypt(client, options);
+  play(client, options);
+  compress(client, options);
+  pluginChannels(client, options);
+
+  return client;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Usage
+
+### Echo client example
+
+```js
+var mc = require('minecraft-protocol');
+var client = mc.<span class="apidocCodeKeywordSpan">createClient</span>({
+host: "localhost",   // optional
+port: 25565,         // optional
+username: "email@example.com",
+password: "12345678",
+});
+client.on('chat', function(packet) {
+// Listen for chat messages and echo them back.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.createDeserializer" id="apidoc.element.minecraft-protocol.createDeserializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>createDeserializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createDeserializer({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})
+{
+  return new Parser(createProtocol(state,isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.createSerializer" id="apidoc.element.minecraft-protocol.createSerializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>createSerializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createSerializer({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})
+{
+  return new Serializer(createProtocol(state,!isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.createServer" id="apidoc.element.minecraft-protocol.createServer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>createServer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createServer(options) {
+  options = options || {};
+  const port = options.port != null ?
+    options.port :
+    options['server-port'] != null ?
+      options['server-port'] :
+      25565;
+  const host = options.host || '0.0.0.0';
+  const kickTimeout = options.kickTimeout || 30 * 1000;
+  const checkTimeoutInterval = options.checkTimeoutInterval || 4 * 1000;
+  const onlineMode = options['online-mode'] == null ? true : options['online-mode'];
+  // a function receiving the default status object and the client
+  // and returning a modified response object.
+  const beforePing = options.beforePing || null;
+
+  const enableKeepAlive = options.keepAlive == null ? true : options.keepAlive;
+
+  const optVersion = options.version || require("./version").defaultVersion;
+  const mcData=require("minecraft-data")(optVersion);
+  const version = mcData.version;
+
+  const serverKey = ursa.generatePrivateKey(1024);
+
+  const server = new Server(version.minecraftVersion,options.customPackets);
+  server.motd = options.motd || "A Minecraft server";
+  server.maxPlayers = options['max-players'] || 20;
+  server.playerCount = 0;
+  server.onlineModeExceptions = {};
+  server.favicon = options.favicon || undefined;
+
+  server.on("connection", function(client) {
+    client.once('set_protocol', onHandshake);
+    client.once('login_start', onLogin);
+    client.once('ping_start', onPing);
+    client.once('legacy_server_list_ping', onLegacyPing);
+    client.on('end', onEnd);
+
+    let keepAlive = false;
+    let loggedIn = false;
+    let lastKeepAlive = null;
+
+    let keepAliveTimer = null;
+    let loginKickTimer = setTimeout(kickForNotLoggingIn, kickTimeout);
+
+    let serverId;
+
+    let sendKeepAliveTime;
+
+    function kickForNotLoggingIn() {
+      client.end('LoginTimeout');
+    }
+
+    function keepAliveLoop() {
+      if(!keepAlive)
+        return;
+
+      // check if the last keepAlive was too long ago (kickTimeout)
+      const elapsed = new Date() - lastKeepAlive;
+      if(elapsed &gt; kickTimeout) {
+        client.end('KeepAliveTimeout');
+        return;
+      }
+      sendKeepAliveTime = new Date();
+      client.write('keep_alive', {
+        keepAliveId: Math.floor(Math.random() * 2147483648)
+      });
+    }
+
+    function onKeepAlive() {
+      if(sendKeepAliveTime) client.latency = (new Date()) - sendKeepAliveTime;
+      lastKeepAlive = new Date();
+    }
+
+    function startKeepAlive() {
+      keepAlive = true;
+      lastKeepAlive = new Date();
+      keepAliveTimer = setInterval(keepAliveLoop, checkTimeoutInterval);
+      client.on('keep_alive', onKeepAlive);
+    }
+
+    function onEnd() {
+      clearInterval(keepAliveTimer);
+      clearTimeout(loginKickTimer);
+    }
+
+    function onPing() {
+      const response = {
+        "version": {
+          "name": version.minecraftVersion,
+          "protocol": version.version
+        },
+        "players": {
+          "max": server.maxPlayers,
+          "online": server.playerCount,
+          "sample": []
+        },
+        "description": {"text": server.motd},
+        "favicon": server.favicon
+      };
+
+      function answerToPing(err, response) {
+        if ( err ) return;
+        client.write('server_info', {response: JSON.stringify(response)});
+      }
+
+      if(beforePing) {
+        if ( beforePing.length &gt; 2 ) {
+          beforePing(response, client, answerToPing);
+        } else {
+          answerToPing(null, beforePing(response, client) || response);
+        }
+      } else {
+        answerToPing(null, response);
+      }
+
+      client.once('ping', function(packet) {
+        client.write('ping', {time: packet.time});
+        client.end();
+      });
+    }
+
+    function onLegacyPing(packet) {
+      if (packet.payload === 1) {
+        const pingVersion = 1;
+        sendPingResponse('\xa7' + [pingVersion, version.version, version.minecraftVersion,
+            server.motd, server.playerCount.toString(), server.maxPlayers.toString()].join('\0'));
+      } else {
+        // ping type 0
+        sendPingResponse([server.motd, server.playerCount.toString(), server.maxPlayers.toString()].join('\xa7'));
+      } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+If the server is in offline mode, you may leave out the `password` option.
+
+### Hello World server example
+
+```js
+var mc = require('minecraft-protocol');
+var server = mc.<span class="apidocCodeKeywordSpan">createServer</span>({
+'online-mode': true,   // optional
+encryption: true,      // optional
+host: '0.0.0.0',       // optional
+port: 25565,           // optional
+});
+server.on('login', function(client) {
+client.write('login', {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ping" id="apidoc.element.minecraft-protocol.ping">
+        function <span class="apidocSignatureSpan">minecraft-protocol.</span>ping
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ping(options, cb) {
+  options.host = options.host || 'localhost';
+  options.port = options.port || 25565;
+  const optVersion = options.version || require("./version").defaultVersion;
+  const mcData=require("minecraft-data")(optVersion);
+  const version = mcData.version;
+  options.majorVersion = version.majorVersion;
+  options.protocolVersion = version.version;
+
+  const client = new Client(false,options.majorVersion);
+  client.on('error', function(err) {
+    cb(err);
+  });
+
+  client.once('server_info', function(packet) {
+    const data = JSON.parse(packet.response);
+    const start = Date.now();
+    client.once('ping', function(packet) {
+      data.latency = Date.now() - start;
+      cb(null, data);
+      client.end();
+    });
+    client.write('ping', {time: [0, 0]});
+  });
+
+  client.on('state', function(newState) {
+    if(newState === states.STATUS)
+      client.write('ping_start', {});
+  });
+
+  // TODO: refactor with src/client/setProtocol.js
+  client.on('connect', function() {
+    client.write('set_protocol', {
+      protocolVersion: options.protocolVersion,
+      serverHost: options.host,
+      serverPort: options.port,
+      nextState: 1
+    });
+    client.state = states.STATUS;
+  });
+
+  tcp_dns(client, options);
+  options.connect(client);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol.browser" id="apidoc.module.minecraft-protocol.browser">module minecraft-protocol.browser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.browser.Client" id="apidoc.element.minecraft-protocol.browser.Client">
+        function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>Client
+        <span class="apidocSignatureSpan">(isServer, version, customPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Client extends EventEmitter
+{
+  constructor(isServer, version, customPackets) {
+    super();
+    this.customPackets=customPackets;
+    this.version=version;
+    this.isServer = !!isServer;
+    this.splitter=framing.createSplitter();
+    this.setSerializer(states.HANDSHAKING);
+    this.packetsToParse={};
+    this.serializer;
+    this.compressor=null;
+    this.framer=framing.createFramer();
+    this.cipher=null;
+    this.decipher=null;
+    this.decompressor=null;
+    this.deserializer;
+    this.isServer;
+    this.protocolState=states.HANDSHAKING;
+    this.ended=true;
+    this.latency=0;
+
+    this.on('newListener', function(event, listener) {
+      const direction = this.isServer ? 'toServer' : 'toClient';
+      if(typeof this.packetsToParse[event] === "undefined") this.packetsToParse[event] = 1;
+      else this.packetsToParse[event] += 1;
+    });
+    this.on('removeListener', function(event, listener) {
+      const direction = this.isServer ? 'toServer' : 'toClient';
+      this.packetsToParse[event] -= 1;
+    });
+  }
+
+  get state(){
+    return this.protocolState;
+  }
+
+
+  setSerializer(state) {
+    this.serializer = createSerializer({ isServer:this.isServer, version:this.version, state: state,customPackets:this.customPackets
+});
+    this.deserializer = createDeserializer({ isServer:this.isServer, version:this.version, state: state, packetsToParse:
+      this.packetsToParse,customPackets:this.customPackets});
+
+    this.splitter.recognizeLegacyPing = state === states.HANDSHAKING;
+
+    this.serializer.on('error', (e) =&gt; {
+      let parts;
+      if(e.field) {
+        parts = e.field.split(".");
+        parts.shift();
+      }
+      else
+        parts=[];
+      const serializerDirection = !this.isServer ? 'toServer' : 'toClient';
+      e.field = [this.protocolState, serializerDirection].concat(parts).join(".");
+      e.message = `Serialization error for ${e.field} : ${e.message}`;
+      if(!this.compressor)
+        this.serializer.pipe(this.framer);
+      else
+        this.serializer.pipe(this.compressor);
+      this.emit('error',e);
+    });
+
+
+    this.deserializer.on('error', (e) =&gt; {
+      let parts;
+      if(e.field) {
+        parts = e.field.split(".");
+        parts.shift();
+      }
+      else
+        parts=[];
+      const deserializerDirection = this.isServer ? 'toServer' : 'toClient';
+      e.field = [this.protocolState, deserializerDirection].concat(parts).join(".");
+      e.message = `Deserialization error for ${e.field} : ${e.message}`;
+      if(!this.compressor)
+        this.splitter.pipe(this.deserializer);
+      else
+        this.decompressor.pipe(this.deserializer);
+      this.emit('error',e);
+    });
+
+    this.deserializer.on('data', (parsed) =&gt; {
+      parsed.metadata.name=parsed.data.name;
+      parsed.data=parsed.data.params;
+      parsed.metadata.state=state;
+      debug("read packet " + state + "." + parsed.metadata.name);
+      debug(parsed.data);
+      this.emit('packet', parsed.data, parsed.metadata);
+      this.emit(parsed.metadata.name, parsed.data, parsed.metadata);
+      this.emit('raw.' + parsed.metadata.name, parsed.buffer, parsed.metadata);
+      this.emit('raw', parsed.buffer, parsed.metadata);
+    });
+  }
+
+  set state(newProperty) {
+    const oldProperty = this.protocolState;
+    this.protocolState = newProperty;
+
+    if(!this.compressor)
+    {
+      this.serializer.unpipe(this.framer);
+      this.splitter.unpipe(this.deserializer);
+    }
+    else
+    {
+      this.serializer.unpipe(this.compressor);
+      this.decompressor.unpipe(this.deserializer);
+    }
+
+    this.serializer.removeAllListeners();
+    this.deserializer.removeAllListeners();
+    this.setSerializer(this.protocolState);
+
+    if(!this.compressor)
+    {
+      this.serializer.pipe(this.framer);
+      this.splitter.pipe(this.deserializer);
+    }
+    else
+    {
+      this.serializer.pipe(this.compressor);
+      this.decompressor.pipe(this.deserializer);
+    }
+
+    this.emit('state', newProperty, oldProperty);
+  }
+
+  get compressionThreshold() {
+    return this.compressor == null ? -2 : this.compressor.compressionThreshold;
+  }
+
+  set c ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.browser.Server" id="apidoc.element.minecraft-protocol.browser.Server">
+        function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>Server
+        <span class="apidocSignatureSpan">(version, customPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Server extends EventEmitter
+{
+  constructor(version, customPackets) {
+    super();
+    this.version=version;
+    this.socketServer=null;
+    this.cipher=null;
+    this.decipher=null;
+    this.clients={};
+    this.customPackets=customPackets;
+  }
+
+  listen(port, host) {
+    const self = this;
+    let nextId = 0;
+    self.socketServer = net.createServer();
+    self.socketServer.on('connection', socket =&gt; {
+      const client = new Client(true,this.version,this.customPackets);
+      client._end = client.end;
+      client.end = function end(endReason) {
+        endReason='{"text":"'+endReason+'"}';
+        if(client.state === states.PLAY) {
+          client.write('kick_disconnect', {reason: endReason});
+        } else if(client.state === states.LOGIN) {
+          client.write('disconnect', {reason: endReason});
+        }
+        client._end(endReason);
+      };
+      client.id = nextId++;
+      self.clients[client.id] = client;
+      client.on('end', function() {
+        delete self.clients[client.id];
+      });
+      client.setSocket(socket);
+      self.emit('connection', client);
+    });
+    self.socketServer.on('error', function(err) {
+      self.emit('error', err);
+    });
+    self.socketServer.on('close', function() {
+      self.emit('close');
+    });
+    self.socketServer.on('listening', function() {
+      self.emit('listening');
+    });
+    self.socketServer.listen(port, host);
+  }
+
+  close() {
+    Object.keys(this.clients).forEach(clientId =&gt; {
+      const client = this.clients[clientId];
+      client.end('ServerShutdown');
+    });
+    this.socketServer.close();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.browser.createDeserializer" id="apidoc.element.minecraft-protocol.browser.createDeserializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>createDeserializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createDeserializer({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})
+{
+  return new Parser(createProtocol(state,isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.browser.createSerializer" id="apidoc.element.minecraft-protocol.browser.createSerializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.browser.</span>createSerializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createSerializer({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})
+{
+  return new Serializer(createProtocol(state,!isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol.compression" id="apidoc.module.minecraft-protocol.compression">module minecraft-protocol.compression</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.compression.createCompressor" id="apidoc.element.minecraft-protocol.compression.createCompressor">
+        function <span class="apidocSignatureSpan">minecraft-protocol.compression.</span>createCompressor
+        <span class="apidocSignatureSpan">(threshold)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createCompressor = function (threshold) {
+  return new Compressor(threshold);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.decipher.on('error', (err) =&gt; this.emit('error', err));
+  this.socket.unpipe(this.splitter);
+  this.socket.pipe(this.decipher).pipe(this.splitter);
+}
+
+setCompressionThreshold(threshold) {
+  if (this.compressor == null) {
+    this.compressor = compression.<span class="apidocCodeKeywordSpan">createCompressor</span>(threshold);
+    this.compressor.on('error', (err) =&gt; this.emit('error', err));
+    this.serializer.unpipe(this.framer);
+    this.serializer.pipe(this.compressor).pipe(this.framer);
+    this.decompressor = compression.createDecompressor(threshold);
+    this.decompressor.on('error', (err) =&gt; this.emit('error', err));
+    this.splitter.unpipe(this.deserializer);
+    this.splitter.pipe(this.decompressor).pipe(this.deserializer);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.compression.createDecompressor" id="apidoc.element.minecraft-protocol.compression.createDecompressor">
+        function <span class="apidocSignatureSpan">minecraft-protocol.compression.</span>createDecompressor
+        <span class="apidocSignatureSpan">(threshold)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createDecompressor = function (threshold) {
+  return new Decompressor(threshold);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  setCompressionThreshold(threshold) {
+if (this.compressor == null) {
+  this.compressor = compression.createCompressor(threshold);
+  this.compressor.on('error', (err) =&gt; this.emit('error', err));
+  this.serializer.unpipe(this.framer);
+  this.serializer.pipe(this.compressor).pipe(this.framer);
+  this.decompressor = compression.<span class="apidocCodeKeywordSpan">createDecompressor</span>(threshold);
+  this.decompressor.on('error', (err) =&gt; this.emit('error', err));
+  this.splitter.unpipe(this.deserializer);
+  this.splitter.pipe(this.decompressor).pipe(this.deserializer);
+} else {
+  this.decompressor.threshold = threshold;
+  this.compressor.threshold = threshold;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol.framing" id="apidoc.module.minecraft-protocol.framing">module minecraft-protocol.framing</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.framing.createFramer" id="apidoc.element.minecraft-protocol.framing.createFramer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.framing.</span>createFramer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createFramer = function () {
+  return new Framer();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.version=version;
+this.isServer = !!isServer;
+this.splitter=framing.createSplitter();
+this.setSerializer(states.HANDSHAKING);
+this.packetsToParse={};
+this.serializer;
+this.compressor=null;
+this.framer=framing.<span class="apidocCodeKeywordSpan">createFramer</span>();
+this.cipher=null;
+this.decipher=null;
+this.decompressor=null;
+this.deserializer;
+this.isServer;
+this.protocolState=states.HANDSHAKING;
+this.ended=true;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.framing.createSplitter" id="apidoc.element.minecraft-protocol.framing.createSplitter">
+        function <span class="apidocSignatureSpan">minecraft-protocol.framing.</span>createSplitter
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createSplitter = function () {
+  return new Splitter();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+class Client extends EventEmitter
+{
+constructor(isServer,version,customPackets) {
+  super();
+  this.customPackets=customPackets;
+  this.version=version;
+  this.isServer = !!isServer;
+  this.splitter=framing.<span class="apidocCodeKeywordSpan">createSplitter</span>();
+  this.setSerializer(states.HANDSHAKING);
+  this.packetsToParse={};
+  this.serializer;
+  this.compressor=null;
+  this.framer=framing.createFramer();
+  this.cipher=null;
+  this.decipher=null;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol.serializer" id="apidoc.module.minecraft-protocol.serializer">module minecraft-protocol.serializer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.serializer.createDeserializer" id="apidoc.element.minecraft-protocol.serializer.createDeserializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.serializer.</span>createDeserializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createDeserializer({ state = states.HANDSHAKING, isServer = false, version, customPackets } = {})
+{
+  return new Parser(createProtocol(state,isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.serializer.createSerializer" id="apidoc.element.minecraft-protocol.serializer.createSerializer">
+        function <span class="apidocSignatureSpan">minecraft-protocol.serializer.</span>createSerializer
+        <span class="apidocSignatureSpan">({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createSerializer({ state = states.HANDSHAKING, isServer = false , version, customPackets} = {})
+{
+  return new Serializer(createProtocol(state,!isServer ? "toServer" : "toClient",version,customPackets),"packet");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.minecraft-protocol.ursa" id="apidoc.module.minecraft-protocol.ursa">module minecraft-protocol.ursa</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.assertKey" id="apidoc.element.minecraft-protocol.ursa.assertKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assertKey(obj) {
+    assert(isKey(obj));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.assertPrivateKey" id="apidoc.element.minecraft-protocol.ursa.assertPrivateKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertPrivateKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assertPrivateKey(obj) {
+    assert(isPrivateKey(obj));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.assertPublicKey" id="apidoc.element.minecraft-protocol.ursa.assertPublicKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>assertPublicKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assertPublicKey(obj) {
+    assert(isPublicKey(obj));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.coerceKey" id="apidoc.element.minecraft-protocol.ursa.coerceKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coerceKey
+        <span class="apidocSignatureSpan">(orig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function coerceKey(orig) {
+    if (isKey(orig)) {
+        return orig;
+    } else if (isStringOrBuffer(orig)) {
+        return createKey(orig);
+    }
+
+    throw new Error("Not a key: " + orig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.coercePrivateKey" id="apidoc.element.minecraft-protocol.ursa.coercePrivateKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coercePrivateKey
+        <span class="apidocSignatureSpan">(orig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function coercePrivateKey(orig) {
+    if (isPrivateKey(orig)) {
+        return orig;
+    } else if (isStringOrBuffer(orig)) {
+        return createPrivateKey(orig);
+    }
+
+    throw new Error("Not a private key: " + orig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.coercePublicKey" id="apidoc.element.minecraft-protocol.ursa.coercePublicKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>coercePublicKey
+        <span class="apidocSignatureSpan">(orig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function coercePublicKey(orig) {
+    if (isPublicKey(orig)) {
+        return orig;
+    } else if (isStringOrBuffer(orig)) {
+        return createPublicKey(orig);
+    }
+
+    throw new Error("Not a public key: " + orig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createKey" id="apidoc.element.minecraft-protocol.ursa.createKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createKey
+        <span class="apidocSignatureSpan">(pem, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createKey(pem, encoding) {
+    pem = decodeString(pem, encoding);
+
+    if (isPublicKeyPem(pem)) {
+        return createPublicKey(pem);
+    } else if (isPrivateKeyPem(pem)) {
+        return createPrivateKey(pem);
+    } else {
+        throw new Error("Not a key.");
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createPrivateKey" id="apidoc.element.minecraft-protocol.ursa.createPrivateKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPrivateKey
+        <span class="apidocSignatureSpan">(pem, password, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPrivateKey(pem, password, encoding) {
+    var rsa = new RsaWrap();
+    pem = decodeString(pem, encoding);
+    password = decodeString(password, encoding);
+
+    try {
+        // Note: The native code is sensitive to the actual number of
+        // arguments. It's *not* okay to pass undefined as a password.
+        if (password) {
+            rsa.setPrivateKeyPem(pem, password);
+        } else {
+            rsa.setPrivateKeyPem(pem);
+        }
+    } catch (ex) {
+        if (!isPrivateKeyPem(pem)) {
+            throw new Error("Not a private key.");
+        }
+        throw ex;
+    }
+
+    return PrivateKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createPrivateKeyFromComponents" id="apidoc.element.minecraft-protocol.ursa.createPrivateKeyFromComponents">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPrivateKeyFromComponents
+        <span class="apidocSignatureSpan">(modulus, exponent, p, q, dp, dq, inverseQ, d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPrivateKeyFromComponents(modulus, exponent, p, q, dp, dq, inverseQ, d) {
+    var rsa = new RsaWrap();
+    rsa.createPrivateKeyFromComponents(modulus, exponent, p, q, dp, dq, inverseQ, d);
+
+    return PrivateKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createPublicKey" id="apidoc.element.minecraft-protocol.ursa.createPublicKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPublicKey
+        <span class="apidocSignatureSpan">(pem, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPublicKey(pem, encoding) {
+    var rsa = new RsaWrap();
+    pem = decodeString(pem, encoding);
+
+    try {
+        rsa.setPublicKeyPem(pem);
+    } catch (ex) {
+        if (!isPublicKeyPem(pem)) {
+            throw new Error("Not a public key.");
+        }
+        throw ex;
+    }
+
+    return PublicKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  let base64PubKey = mcPubKeyBuffer.toString('base64');
+  const maxLineLength = 65;
+  while(base64PubKey.length &gt; 0) {
+    pem += base64PubKey.substring(0, maxLineLength) + "\n";
+    base64PubKey = base64PubKey.substring(maxLineLength);
+  }
+  pem += "-----END PUBLIC KEY-----\n";
+  return ursa.<span class="apidocCodeKeywordSpan">createPublicKey</span>(pem, 'utf8');
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createPublicKeyFromComponents" id="apidoc.element.minecraft-protocol.ursa.createPublicKeyFromComponents">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createPublicKeyFromComponents
+        <span class="apidocSignatureSpan">(modulus, exponent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPublicKeyFromComponents(modulus, exponent) {
+    var rsa = new RsaWrap();
+    rsa.createPublicKeyFromComponents(modulus, exponent);
+    return PublicKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createSigner" id="apidoc.element.minecraft-protocol.ursa.createSigner">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createSigner
+        <span class="apidocSignatureSpan">(algorithm)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createSigner(algorithm) {
+    var hash = crypto.createHash(algorithm);
+    var self = {};
+
+    function update(buf, bufEncoding) {
+        buf = decodeString(buf, bufEncoding);
+        hash.update(buf);
+        return self;
+    }
+
+    function sign(privateKey, outEncoding) {
+        var hashBuf = new Buffer(hash.digest(BINARY), BINARY);
+        return privateKey.sign(algorithm, hashBuf, undefined, outEncoding);
+    }
+
+    self.sign = sign;
+    self.update = update;
+    return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.createVerifier" id="apidoc.element.minecraft-protocol.ursa.createVerifier">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>createVerifier
+        <span class="apidocSignatureSpan">(algorithm)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createVerifier(algorithm) {
+    var hash = crypto.createHash(algorithm);
+    var self = {};
+
+    function update(buf, bufEncoding) {
+        buf = decodeString(buf, bufEncoding);
+        hash.update(buf);
+        return self;
+    }
+
+    function verify(publicKey, sig, sigEncoding) {
+        var hashBuf = new Buffer(hash.digest(BINARY), BINARY);
+        sig = decodeString(sig, sigEncoding);
+        return publicKey.verify(algorithm, hashBuf, sig);
+    }
+
+    self.update = update;
+    self.verify = verify;
+    return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.equalKeys" id="apidoc.element.minecraft-protocol.ursa.equalKeys">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>equalKeys
+        <span class="apidocSignatureSpan">(key1, key2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function equalKeys(key1, key2) {
+    // See above for rationale. In this case, there's no ssh form for
+    // private keys, so we just use PEM for that.
+
+    if (isPrivateKey(key1) &amp;&amp; isPrivateKey(key2)) {
+        var pem1 = key1.toPrivatePem(UTF8);
+        var pem2 = key2.toPrivatePem(UTF8);
+        return pem1 === pem2;
+    }
+
+    if (isPublicKey(key1) &amp;&amp; isPublicKey(key2)) {
+        return matchingPublicKeys(key1, key2);
+    }
+
+    return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.generatePrivateKey" id="apidoc.element.minecraft-protocol.ursa.generatePrivateKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>generatePrivateKey
+        <span class="apidocSignatureSpan">(modulusBits, exponent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function generatePrivateKey(modulusBits, exponent) {
+    if (modulusBits === undefined) {
+        modulusBits = 2048;
+    }
+
+    if (exponent === undefined) {
+        exponent = 65537;
+    }
+
+    var rsa = new RsaWrap();
+    rsa.generatePrivateKey(modulusBits, exponent);
+
+    return PrivateKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+const enableKeepAlive = options.keepAlive == null ? true : options.keepAlive;
+
+const optVersion = options.version || require("./version").defaultVersion;
+const mcData=require("minecraft-data")(optVersion);
+const version = mcData.version;
+
+const serverKey = ursa.<span class="apidocCodeKeywordSpan">generatePrivateKey</span>(1024);
+
+const server = new Server(version.minecraftVersion,options.customPackets);
+server.motd = options.motd || "A Minecraft server";
+server.maxPlayers = options['max-players'] || 20;
+server.playerCount = 0;
+server.onlineModeExceptions = {};
+server.favicon = options.favicon || undefined;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.isKey" id="apidoc.element.minecraft-protocol.ursa.isKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isKey(obj) {
+    var obj2;
+
+    try {
+        var unseal = obj.unseal;
+        if (typeof unseal !== "function") {
+            return false;
+        }
+        obj2 = unseal(theUnsealer);
+    } catch (ex) {
+        // Ignore; can't assume that other objects obey any particular
+        // unsealing protocol.
+        // TODO: Log?
+        return false;
+    }
+
+    return obj2 !== undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.isPrivateKey" id="apidoc.element.minecraft-protocol.ursa.isPrivateKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isPrivateKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPrivateKey(obj) {
+    return isKey(obj) &amp;&amp; (obj.decrypt !== undefined);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.isPublicKey" id="apidoc.element.minecraft-protocol.ursa.isPublicKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>isPublicKey
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPublicKey(obj) {
+    return isKey(obj) &amp;&amp; !isPrivateKey(obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.matchingPublicKeys" id="apidoc.element.minecraft-protocol.ursa.matchingPublicKeys">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>matchingPublicKeys
+        <span class="apidocSignatureSpan">(key1, key2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matchingPublicKeys(key1, key2) {
+    if (!(isKey(key1) &amp;&amp; isKey(key2))) {
+        return false;
+    }
+
+    // This isn't the most efficient implementation, but it will suffice:
+    // We convert both to ssh form, which has very little leeway for
+    // variation, and compare bytes.
+
+    var ssh1 = key1.toPublicSsh(UTF8);
+    var ssh2 = key2.toPublicSsh(UTF8);
+
+    return ssh1 === ssh2;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.openSshPublicKey" id="apidoc.element.minecraft-protocol.ursa.openSshPublicKey">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>openSshPublicKey
+        <span class="apidocSignatureSpan">(key, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function openSshPublicKey(key, encoding) {
+    if (!Buffer.isBuffer(key)) {
+        key = key.substr(0, 3) === 'ssh' ? key.split(' ')[1] : key;
+        key = new Buffer(key, encoding || 'base64');
+    }
+
+    function parsePublicKey(key) {
+        var parts = [],
+            partsLength = 3;
+
+        while(key.length) {
+            var dLen = key.readInt32BE(0);
+            var data = key.slice(4, dLen+4);
+            key = key.slice(4+dLen);
+            parts.push(data);
+            if (!(--partsLength)) break;
+        }
+
+        return {
+            modulus :   parts[2],
+            exponent:   parts[1],
+            type    :   parts[0]
+        };
+    }
+
+    var pubKey = parsePublicKey(key);
+    var rsa = new RsaWrap();
+
+    if (pubKey.type != 'ssh-rsa') {
+        throw new TypeError('Only "ssh-rsa" format supported');
+    }
+
+    rsa.openPublicSshKey(pubKey.modulus, pubKey.exponent);
+
+    return PublicKey(rsa);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.minecraft-protocol.ursa.sshFingerprint" id="apidoc.element.minecraft-protocol.ursa.sshFingerprint">
+        function <span class="apidocSignatureSpan">minecraft-protocol.ursa.</span>sshFingerprint
+        <span class="apidocSignatureSpan">(sshKey, sshEncoding, outEncoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sshFingerprint(sshKey, sshEncoding, outEncoding) {
+    var hash = crypto.createHash(MD5);
+
+    hash.update(decodeString(sshKey, sshEncoding));
+    var result = new Buffer(hash.digest(BINARY), BINARY);
+    return encodeBuffer(result, outEncoding);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
